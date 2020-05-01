@@ -32,11 +32,13 @@ public class TvDbClientConfiguration {
   }
 
   @Bean
-  public WebClient tvDbOAuthorizedClient(OAuth2AuthorizedClientManager authorizedClientManager) {
+  public WebClient tvDbOAuthorizedClient(OAuth2AuthorizedClientManager authorizedClientManager,
+      TvDbConfigurationProperties tvDbConfigurationProperties) {
     ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client =
         new ServletOAuth2AuthorizedClientExchangeFilterFunction(authorizedClientManager);
     oauth2Client.setDefaultClientRegistrationId(TVDB_CLIENT_REGISTRATION);
     return WebClient.builder()
+        .baseUrl(tvDbConfigurationProperties.getUrl())
         .apply(oauth2Client.oauth2Configuration())
         .build();
   }
