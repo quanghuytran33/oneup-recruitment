@@ -11,6 +11,7 @@ public class OrderUtils {
   Method getAllOrders and findOrdersForProduct must be typed with class Order instead of generic type
   Parameter 'debug' is useless
   User lambda syntax
+  Use method contains(element) of List instead of parse the whole list with loop
   Variable 'l' can be directly LinkedList instead of creating a wrapper
 
   public LinkedList findOrdersForProduct(Product p, boolean debug) {
