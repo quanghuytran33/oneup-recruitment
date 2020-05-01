@@ -8,17 +8,25 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.oneup.tvseries.AbstractOneUpTvSeriesControllerIntegrationTest;
 import com.oneup.tvseries.domain.TvSeries;
 import com.oneup.tvseries.repository.TvSeriesRepository;
+import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
+import org.springframework.test.context.jdbc.SqlGroup;
 
+@SqlGroup({
+    @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, value = "/data/truncate_and_insert.sql"),
+    @Sql(executionPhase = ExecutionPhase.AFTER_TEST_METHOD, value = "/data/clear.sql")
+})
 public class TvSeriesControllerIntegrationTest extends
     AbstractOneUpTvSeriesControllerIntegrationTest {
 
   @Test
-  public void shouldReturnTvSeries_whenIdIs1() throws JsonProcessingException {
+  public void shouldReturnTvSeries_whenIdIs1() {
 
     // @formatter:off
     /*int id =

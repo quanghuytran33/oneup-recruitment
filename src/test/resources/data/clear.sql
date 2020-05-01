@@ -1,0 +1,1 @@
+truncate table tv_series;
