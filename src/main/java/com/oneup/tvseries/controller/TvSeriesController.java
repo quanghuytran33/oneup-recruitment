@@ -32,10 +32,16 @@ public class TvSeriesController {
     return tvSeriesService.saveTvSeries(tvSeries);
   }
 
+//  @GetMapping(value = "/{id}")
+//  @ResponseStatus(HttpStatus.OK)
+//  public TvSeries retrieveTvSeries(@PathVariable("id") long id) {
+//    return tvSeriesService.retrieveTvSeriesById(id);
+//  }
+
   @GetMapping(value = "/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public TvSeries retrieveTvSeries(@PathVariable("id") long id) {
-    return tvSeriesService.retrieveTvSeriesById(id);
+  public Object retrieveTvSeries(@PathVariable("id") long id) {
+    return tvSeriesService.retrieveTvSeriesByIdViaTvDb(id);
   }
 
 //  @GetMapping(value = "/search")

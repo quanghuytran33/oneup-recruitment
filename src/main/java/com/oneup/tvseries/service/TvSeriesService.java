@@ -28,6 +28,10 @@ public class TvSeriesService {
         () -> new ResourceNotFoundException(TvSeries.class.getName(), String.valueOf(id)));
   }
 
+  public Object retrieveTvSeriesByIdViaTvDb(final long id) {
+    return tvDbSeriesClient.retrieveSeriesById(id);
+  }
+
   public List<TvSeries> retrieveTvSeriesByName(String seriesName) {
 
     List<TvSeries> result = tvSeriesRepository.findBySeriesName(seriesName);

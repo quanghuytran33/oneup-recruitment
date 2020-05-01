@@ -17,4 +17,10 @@ public class TvDbSeriesClient {
             .build()).retrieve().bodyToMono(String.class);
   }
 
+  public Object retrieveSeriesById(long id) {
+    return tvDbOAuthorizedClient.get().uri(uriBuilder ->
+        uriBuilder.path("/series/" + id)
+            .build()).retrieve().bodyToMono(String.class);
+  }
+
 }
