@@ -25,7 +25,6 @@ public class TvDbAccessResponseClient {
 
     TvDbAccessTokenResponse accessTokenResponse = tvDbWebClient.post()
         .uri(URI.create(tvDbConfigurationProperties.getUrl() + "/login"))
-        //.contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON)
         .bodyValue(accessTokenRequest)
         .retrieve().bodyToMono(TvDbAccessTokenResponse.class).block();
