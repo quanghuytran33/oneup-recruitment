@@ -10,8 +10,8 @@ public class OrderUtils {
   The method should return interface List instead of its implementation (LinkedList)
   Method getAllOrders and findOrdersForProduct must be typed with class Order instead of generic type
   Parameter 'debug' is useless
-  User lambda syntax
-  Use method contains(element) of List instead of parse the whole list with loop
+  Use lambda syntax
+  Use method contains(element) of List instead of parsing the whole list with loop
   Variable 'l' can be directly LinkedList instead of creating a wrapper
 
   NullPointerException risk
@@ -24,6 +24,9 @@ public class OrderUtils {
   Useless null check
   if (found && order != null)
   l.add(order);
+
+  List must get by index get(i) instead of get(O)
+  Order order = (Order) list.get(0);
 
   public LinkedList findOrdersForProduct(Product p, boolean debug) {
     ArrayList l = new ArrayList();
@@ -50,7 +53,7 @@ public class OrderUtils {
         .collect(Collectors.toList());
   }
 
-  public static List<Order> getAllOrders() {
+  public List<Order> getAllOrders() {
     return Collections.emptyList();
   }
 
