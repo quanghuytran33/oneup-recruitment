@@ -17,9 +17,6 @@ import org.springframework.http.MediaType;
 public class TvSeriesControllerIntegrationTest extends
     AbstractOneUpTvSeriesControllerIntegrationTest {
 
-  @Autowired
-  private TvSeriesRepository tvSeriesRepository;
-
   @Test
   public void shouldReturnTvSeries_whenIdIs1() throws JsonProcessingException {
 
