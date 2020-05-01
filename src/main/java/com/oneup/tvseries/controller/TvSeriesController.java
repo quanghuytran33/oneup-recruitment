@@ -38,10 +38,16 @@ public class TvSeriesController {
     return tvSeriesService.retrieveTvSeriesById(id);
   }
 
+//  @GetMapping(value = "/search")
+//  @ResponseStatus(HttpStatus.OK)
+//  public List<TvSeries> retrieveTvSeriesByName(@RequestParam("name") String name) {
+//    return tvSeriesService.retrieveTvSeriesByName(name);
+//  }
+
   @GetMapping(value = "/search")
   @ResponseStatus(HttpStatus.OK)
-  public List<TvSeries> retrieveTvSeriesByName(@RequestParam("name") String name) {
-    return tvSeriesService.retrieveTvSeriesByName(name);
+  public Object retrieveTvSeriesByName(@RequestParam("name") String name) {
+    return tvSeriesService.retrieveTvSeriesByNameViaTvDb(name);
   }
 
   @GetMapping
