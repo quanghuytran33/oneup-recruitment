@@ -14,6 +14,17 @@ public class OrderUtils {
   Use method contains(element) of List instead of parse the whole list with loop
   Variable 'l' can be directly LinkedList instead of creating a wrapper
 
+  NullPointerException risk
+  if (order.getProducts().size() > 0)
+
+  Must use equals method here because this code compare only object references, not it contents
+  Furthermore, it should break products loop after this line. If not, the result will be incorrect
+  found = (p2 == p);
+
+  Useless null check
+  if (found && order != null)
+  l.add(order);
+
   public LinkedList findOrdersForProduct(Product p, boolean debug) {
     ArrayList l = new ArrayList();
     ArrayList list = getAllOrders();
